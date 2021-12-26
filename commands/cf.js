@@ -1,61 +1,19 @@
-const { MessageEmbed } = require("discord.js");
-
 exports.execute = async (client, message, args) => {
-    const embed = new MessageEmbed()
-    let randNo = Math.round(Math.random() * max + min)
-        .setTitle("Test Başarılı!")
-    client.commands.forEach(cmd => {
-  
-    });
-    return message.channel.send(embed);
-}
-
-exports.help = {
-    name: "test",
-    aliases: ["h","t"],
-    usage: `test`
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const { MessageEmbed } = require("discord.js");
-
-exports.execute = async (client, message, args) => {
-    const embed = new MessageEmbed()
-            let max = args[0]
-      let min = args[1]
-
-    let randNo = Math.round(Math.random() * max + min)
-
-    .setTitle("Your random number is: ")
-    .setDescription(randNo)
-    .setColor("YELLOW")
-    .setFooter("Random Number Generator")
-    .setTimestamp()
-
-    message.reply(embed)
-
-    client.commands.forEach(cmd => {
-  
-    });
-    return message.channel.send(embed);
-}
+    let users = [
+        "Pocket",
+        "T-Shirt",
+        "Zero's Databse",
+        "Street"
+    ];
+    let amount = Math.floor(Math.random() * 200) + 50;
+    let beg = await client.eco.beg(client.ecoAddUser, amount, { canLose: false, cooldown: 0, customName: "search" });
+    if (beg.onCooldown) return message.reply(`Come back after ${beg.time.minutes} minutes & ${beg.time.seconds} seconds.`);
+    if (beg.lost) return message.channel.send(`**${users[Math.floor(Math.random() * users.length)]}:** You were caught! You couldn't get money kiddo.`);
+    else return message.reply(`**${users[Math.floor(Math.random() * users.length)]}** was somewhat profitable, you found **${beg.amount}** 💸. Now you have **${beg.after}** 💸.`);
+};
 
 exports.help = {
     name: "cf",
-    aliases: ["h","t"],
-    usage: `cf`
+    aliases: [],
+    usage: "cf"
 }
