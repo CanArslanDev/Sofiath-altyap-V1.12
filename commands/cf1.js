@@ -7,8 +7,8 @@ exports.execute = async (client, message, args) => {
     if(authordata.amount<amount3)  return message.reply(`Girdiğiniz miktar paranızdan fazla olamaz`);
     else
     {
-      if([Math.floor(amount2)]==0)
-        {
+       if([Math.floor(amount2)]==0) yazitura="Tura";
+          else yazitura="Yazı";
                 message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor.🪙`).then(async msg => {
         setTimeout(() => {
           msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor..🪙`);
@@ -16,17 +16,22 @@ exports.execute = async (client, message, args) => {
                 setTimeout(() => {
           msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙`);
         }, 2000);
-        })
-          if([Math.floor(amount2)]==0) yazitura="Tura";
-          else yazitura="Yazı";
+                          setTimeout(() => {
+           if([Math.floor(amount2)]==0)
+        {
+         
           let money= amount3*2
-            let beg = await client.eco.beg(client.ecoAddUser, money, { canLose: false, cooldown: 1, customName: "search" });
+            let beg = client.eco.beg(client.ecoAddUser, amount3, { canLose: false, cooldown: 1, customName: "search" });
       if (beg.onCooldown) return message.reply(`Come back after ${beg.time.minutes} minutes & ${beg.time.seconds} seconds.`);
-      return message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
+      msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
         }
     else {
-
+      let beg = client.eco.setMoney(user.id, parseInt(auth));
+     msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve maalesef **kaybettin :c**`);
     }
+        }, 3000);
+        })
+     
     }
     
     };
