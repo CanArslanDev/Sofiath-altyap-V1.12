@@ -9,14 +9,17 @@ exports.execute = async (client, message, args) => {
     let amount = Math.floor(Math.random() * 15);
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
+    let azcok=""
      if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
   else{
-    if(amount3>21) return message.channel.send(`** ⛔${message.author.tag} | ** 21'den büyük sayı giremessiniz.`);
+    if(amount3>21 || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** 21'den büyük ve 1'den küçük sayı giremessiniz.`);
+    if([Math.floor(amount2)]==0) azcok="En Az Atan"
+    else azcok="En Çok Atan"
    const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
-  .setDescription(`**${message.author.tag}= ${amount3}💶 ** \n **Rakip= ${amount}💶 **`)
+  .setDescription(`**${message.author.tag}= *${amount3}*💶  \n Rakip= *Bekleniyor*💶 **`)
   .setColor("GRAY")
-  .setFooter("Do :?buy <item> to purchase the item.")
+  .setFooter(`${azcok}**Kazanır**`)
   return message.channel.send(embed);
   }
 };

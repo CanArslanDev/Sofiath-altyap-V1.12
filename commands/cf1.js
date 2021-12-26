@@ -6,7 +6,7 @@ exports.execute = async (client, message, args) => {
     let authordata = client.eco.fetchMoney(message.author.id) 
     if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz`);
   else{
-    if(authordata.amount<amount3)  return message.channel.send(`** ⛔${message.author.tag} | ** Girdiğiniz miktar paranızdan fazla olamaz`);
+    if(authordata.amount<amount3 || amount3<1)  return message.channel.send(`** ⛔${message.author.tag} | ** Girdiğiniz miktar paranızdan fazla veya 1'den az olamaz`);
     else
     {
        if([Math.floor(amount2)]==0) yazitura="Tura";
