@@ -17,9 +17,9 @@ exports.execute = async (client, message, args) => {
     else azcok="En Çok Atan"
    const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
-  .setDescription(`**${message.author.tag}= *${amount3}*💶  \n Rakip= *Bekleniyor*💶 **`)
+  .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   .setColor("GRAY")
-  .setFooter(`${azcok}**Kazanır**`)
+  .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
   return message.channel.send(embed);
   }
 };
