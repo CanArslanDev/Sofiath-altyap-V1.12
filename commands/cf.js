@@ -5,7 +5,7 @@ module.exports.execute = async (client, message, args) => {
 };
 
 module.exports.help = {
-    name: "daily",
+    name: "cf",
     aliases: [],
     usage: "cf"
 }
