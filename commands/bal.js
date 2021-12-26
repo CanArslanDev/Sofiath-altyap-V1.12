@@ -6,7 +6,7 @@ exports.execute = async (client, message, args) => {
     const embed = new MessageEmbed()
         .setTitle(`Balance`)
         .addField(`User`, `<@${userBalance.user}>`)
-        .addField(`Balance`, `${userBalance.amount} 💸`)
+        .addField(`Balance`, `${userBalance.amount} 💶`)
         .addField(`Position`, userBalance.position)
         .setColor("RANDOM")
         .setThumbnail(user.displayAvatarURL)
@@ -16,6 +16,6 @@ exports.execute = async (client, message, args) => {
 
 exports.help = {
     name: "bal",
-    aliases: ["money", "credits", "balance"],
+    aliases: ["money", "cash", "balance"],
     usage: `bal`
 }

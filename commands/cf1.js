@@ -4,7 +4,9 @@ exports.execute = async (client, message, args) => {
     let amount3 = args[0]
     let yazitura= ""
     let authordata = client.eco.fetchMoney(message.author.id) 
-    if(authordata.amount<amount3)  return message.reply(`Girdiğiniz miktar paranızdan fazla olamaz`);
+    if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz`);
+  else{
+    if(authordata.amount<amount3)  return message.channel.send(`** ⛔${message.author.tag} | ** Girdiğiniz miktar paranızdan fazla olamaz`);
     else
     {
        if([Math.floor(amount2)]==0) yazitura="Tura";
@@ -21,18 +23,17 @@ exports.execute = async (client, message, args) => {
         {
          
           let money= amount3*2
-            let beg = client.eco.beg(client.ecoAddUser, amount3, { canLose: false, cooldown: 1, customName: "search" });
-      if (beg.onCooldown) return message.reply(`Come back after ${beg.time.minutes} minutes & ${beg.time.seconds} seconds.`);
+            let data = client.eco.addMoney(client.ecoAddUser, parseInt(amount3));
       msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
         }
     else {
-      let beg2 = client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
+      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
      msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve maalesef **kaybettin :c**`);
     }
         }, 3000);
         })
      
-    }
+    }}
     
     };
 
