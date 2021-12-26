@@ -14,9 +14,9 @@ exports.execute = async (client, message, args) => {
           
             let beg = await client.eco.beg(client.ecoAddUser, amount3, { canLose: false, cooldown: 1, customName: "search" });
       if (beg.onCooldown) return message.reply(`Come back after ${beg.time.minutes} minutes & ${beg.time.seconds} seconds.`);
-      return message.reply(`Paranı **2'ye** katladın ve **${amount}**💸 Kazandın!. \n Şuanki Paran:**${beg.after}** 💸.\n kullanıcıdan alınan veri:**${amount3}** \n Şans: **${[Math.floor(amount2)]}** \n Kullanıcı ismi: **${authordata.user.name}**`);
+      return message.channel.send(`**${message.author.tag}**Paranı **2'ye** katladın ve **${amount}**💸 Kazandın!. \n Şuanki Paran:**${beg.after}** 💸.\n kullanıcıdan alınan veri:**${amount3}** \n Şans: **${[Math.floor(amount2)]}** \n Kullanıcı ismi: **${message.author.tag}**`);
         }
-    else return message.reply(`kaybettiniz :c`)
+    else return message.channel.send(`**${message.author.tag}** kaybettiniz :c`)
     }
     
     };
