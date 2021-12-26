@@ -6,19 +6,20 @@ exports.execute = async (client, message, args) => {
         "Zero's Databse",
         "Street"
     ];
-    let amount = Math.floor(Math.random() * 10)+2;
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
+    let amount = Math.floor(Math.random() * amount3);
     let azcok=""
     let amountfinish= 0
+    let authordata = client.eco.fetchMoney(message.author.id) 
      if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
   else{
-    if(amount3>21 || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** 21'den büyük ve 1'den küçük sayı giremessiniz.`);
+    if(amount3>authordata.amount || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
     
     if([Math.floor(amount2)]==0) azcok="En Az Atan"
     else azcok="En Çok Atan"
    const embed = new MessageEmbed()
-  .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
+  .setTitle(`**${message.author.tag} | ${amount3} İle Spin Oynadı🟩🟥🟦!**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
   .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
@@ -29,7 +30,7 @@ exports.execute = async (client, message, args) => {
         return msg.edit(embed)
         }, 1000);
     setTimeout(() => {
-      let amount4 = Math.floor(Math.random() * 10)+2;
+      let amount4 = Math.floor(Math.random() * amount3);
       let amountfinish= Math.floor(amount+amount4)
          embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amountfinish}💶 **`)
         if(amountfinish==amount3) {
@@ -57,7 +58,7 @@ exports.execute = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "spin",
+    name: "bj",
     aliases: [],
-    usage: "spin <green,red,blue>"
+    usage: "bj <amount>"
 }
