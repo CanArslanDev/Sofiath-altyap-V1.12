@@ -9,6 +9,14 @@ exports.execute = async (client, message, args) => {
     {
       if([Math.floor(amount2)]==0)
         {
+                message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor.🪙`).then(async msg => {
+        setTimeout(() => {
+          msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor..🪙`);
+        }, 1000);
+                setTimeout(() => {
+          msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙`);
+        }, 2000);
+        })
           if([Math.floor(amount2)]==0) yazitura="Tura";
           else yazitura="Yazı";
           let money= amount3*2
@@ -17,10 +25,7 @@ exports.execute = async (client, message, args) => {
       return message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
         }
     else {
-      message.channel.send("Kasa Açılıyor.").then(async msg => {
-        setTimeout(() => {
-          msg.edit("Kasa Açılıyor..");
-        }, 1000);
+
     }
     }
     
