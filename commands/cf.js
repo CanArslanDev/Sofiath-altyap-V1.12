@@ -1,21 +1,45 @@
+const { MessageEmbed } = require("discord.js");
 
-module.exports = {
-  name: 'rand',
-  description: "generates a random number",
-  execute(message, args, Discord) {
+exports.execute = async (client, message, args) => {
+    const embed = new MessageEmbed()
+    let randNo = Math.round(Math.random() * max + min)
+        .setTitle("Test Başarılı!")
+    client.commands.forEach(cmd => {
+  
+    });
+    return message.channel.send(embed);
+}
 
-    if (!args.length || !args[1]) {
-      message.channel.send("You need to type in the min and max values like this \`!rand 10 5\`")
-    }
+exports.help = {
+    name: "test",
+    aliases: ["h","t"],
+    usage: `test`
+}
 
-    else {
 
-      let max = args[0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const { MessageEmbed } = require("discord.js");
+
+exports.execute = async (client, message, args) => {
+    const embed = new MessageEmbed()
+            let max = args[0]
       let min = args[1]
 
     let randNo = Math.round(Math.random() * max + min)
 
-    const embed = new Discord.MessageEmbed()
     .setTitle("Your random number is: ")
     .setDescription(randNo)
     .setColor("YELLOW")
@@ -24,7 +48,14 @@ module.exports = {
 
     message.reply(embed)
 
-    }
+    client.commands.forEach(cmd => {
+  
+    });
+    return message.channel.send(embed);
+}
 
-  }
+exports.help = {
+    name: "cf",
+    aliases: ["h","t"],
+    usage: `cf`
 }
