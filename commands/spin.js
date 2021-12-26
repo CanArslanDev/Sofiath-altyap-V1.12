@@ -1,44 +1,63 @@
+const { MessageEmbed } = require("discord.js");
 exports.execute = async (client, message, args) => {
-    let amount = Math.floor(Math.random() * 200)+50;
+    let users = [
+        "Pocket",
+        "T-Shirt",
+        "Zero's Databse",
+        "Street"
+    ];
+    let amount = Math.floor(Math.random() * 10)+2;
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
-    let yazitura= ""
-    let authordata = client.eco.fetchMoney(message.author.id) 
-    if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz`);
+    let azcok=""
+    let amountfinish= 0
+     if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
   else{
-    if(authordata.amount<amount3 || amount3<1)  return message.channel.send(`** ⛔${message.author.tag} | ** Girdiğiniz miktar paranızdan fazla veya 1'den az olamaz`);
-    else
-    {
-       if([Math.floor(amount2)]==0) yazitura="Tura";
-          else yazitura="Yazı";
-                message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor.🪙`).then(async msg => {
-        setTimeout(() => {
-          msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor..🪙`);
-        }, 1000);
-                setTimeout(() => {
-          msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙`);
-        }, 2000);
-                          setTimeout(() => {
-           if([Math.floor(amount2)]==0)
-        {
-         
-          let money= amount3*2
-            let data = client.eco.addMoney(client.ecoAddUser, parseInt(amount3));
-      msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
-        }
-    else {
-      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
-     msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve maalesef **kaybettin :c**`);
-    }
-        }, 3000);
-        })
-     
-    }}
+    if(amount3>21 || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** 21'den büyük ve 1'den küçük sayı giremessiniz.`);
     
-    };
+    if([Math.floor(amount2)]==0) azcok="En Az Atan"
+    else azcok="En Çok Atan"
+   const embed = new MessageEmbed()
+  .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
+  .setColor("GRAY")
+  .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
+  .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
+  
+  return message.channel.send(embed).then(async msg => {
+      setTimeout(() => {
+         embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amount}💶 **`)
+        return msg.edit(embed)
+        }, 1000);
+    setTimeout(() => {
+      let amount4 = Math.floor(Math.random() * 10)+2;
+      let amountfinish= Math.floor(amount+amount4)
+         embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amountfinish}💶 **`)
+        if(amountfinish==amount3) {
+                  embed.setColor("YELLOW")
+            embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
+          }
+          else if(amountfinish>amount3)
+        {
+          embed.setColor("RED")
+          let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
+        }
+      else
+        {
+          embed.setColor("GREEN")
+          let data2= client.eco.addMoney(client.ecoAddUser, parseInt(amount3));
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Tebrikler ,Kazandın!`)
+        }
+    
+        return msg.edit(embed)
+        }, 2000);
+          });
+
+  }
+};
 
 exports.help = {
-    name: "cf",
-    aliases: ["coinflip","yazıtura"],
-    usage: "cf <miktar>"
+    name: "spin",
+    aliases: [],
+    usage: "spin <green,red,blue>"
 }
