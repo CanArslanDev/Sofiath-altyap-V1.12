@@ -32,28 +32,27 @@ exports.execute = async (client, message, args) => {
       let amount4 = Math.floor(Math.random() * 10)+2;
       let amountfinish= Math.floor(amount+amount4)
          embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amountfinish}💶 **`)
-        return msg.edit(embed)
-        }, 2000);
-          });
-          if(amountfinish=amount3) {
-            embed.setFooter(`Rakip Kazandı :(`)
-            return embed.edit(embed)
+        if(amountfinish==amount3) {
+                  embed.setColor("YELLOW")
+            embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
           }
-           if(amountfinish>amount3)
+          else if(amountfinish>amount3)
         {
-          embed.Color("RED")
+          embed.setColor("RED")
           let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
-          embed.setFooter(`Rakip Kazandı :(`)
-          return embed.edit(embed)
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
         }
       else
         {
-          embed.Color("GREEN")
+          embed.setColor("GREEN")
           let data2= client.eco.addMoney(client.ecoAddUser, parseInt(amount3));
-          embed.setFooter(`Tebrikler ,Kazandın!`)
-          return embed.edit(embed)
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Tebrikler ,Kazandın!`)
         }
     
+        return msg.edit(embed)
+        }, 2000);
+          });
+
   }
 };
 
