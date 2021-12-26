@@ -26,7 +26,7 @@ exports.execute = async (client, message, args) => {
       msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
         }
     else {
-      let beg = client.eco.setMoney(user.id, parseInt(auth));
+      let beg2 = client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
      msg.edit(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve maalesef **kaybettin :c**`);
     }
         }, 3000);
