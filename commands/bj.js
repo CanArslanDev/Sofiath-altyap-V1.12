@@ -13,13 +13,20 @@ exports.execute = async (client, message, args) => {
      if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
   else{
     if(amount3>21 || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** 21'den büyük ve 1'den küçük sayı giremessiniz.`);
+    
     if([Math.floor(amount2)]==0) azcok="En Az Atan"
     else azcok="En Çok Atan"
    const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
-  .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
+  .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`).then(async msg => {
+      setTimeout(() => {
+         embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
+          msg.delete()
+        }, 5000);
+          })
+  
   return message.channel.send(embed);
   }
 };
