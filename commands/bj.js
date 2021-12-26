@@ -9,18 +9,19 @@ exports.execute = async (client, message, args) => {
     let amount = Math.floor(Math.random() * 200)+50;
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
-    let beg = await client.eco.beg(client.ecoAddUser, amount, { canLose: false, cooldown: 1, customName: "search" });
-    let beg2 = await client.eco.beg(client.ecoAddUser, amount2, { canLose: false, cooldown: 1, customName: "search" });
+     if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz`);
+  else{
    const embed = new MessageEmbed()
-  .setTitle("Store")
-  .setDescription("content")
-  .setColor("BLURPLE")
+  .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
+  .setDescription(`**${message.author.tag}= ${amount3} **`)
+  .setColor("GRAY")
   .setFooter("Do :?buy <item> to purchase the item.")
   return message.channel.send(embed);
+  }
 };
 
 exports.help = {
     name: "bj",
     aliases: [],
-    usage: "bj <amount>"
+    usage: "bj <amount> <amount2>"
 }
