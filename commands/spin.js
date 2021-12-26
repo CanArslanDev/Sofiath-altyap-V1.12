@@ -58,7 +58,7 @@ exports.execute = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "bj",
+    name: "spin",
     aliases: [],
-    usage: "bj <amount>"
+    usage: "spin <amount>"
 }
