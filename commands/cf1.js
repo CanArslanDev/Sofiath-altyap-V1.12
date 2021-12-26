@@ -7,13 +7,18 @@ exports.execute = async (client, message, args) => {
     if(authordata.amount<amount3)  return message.reply(`Girdiğiniz miktar paranızdan fazla olamaz`);
     else
     {
+      return message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
+      setTimeout(()=>
+                 return message.edit("**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!");
+                )
       if([Math.floor(amount2)]==0)
         {
           if([Math.floor(amount2)]==0) yazitura="Tura";
           else yazitura="Yazı";
-            let beg = await client.eco.beg(client.ecoAddUser, amount3*2, { canLose: false, cooldown: 1, customName: "search" });
+          let money= amount3*2
+            let beg = await client.eco.beg(client.ecoAddUser, money, { canLose: false, cooldown: 1, customName: "search" });
       if (beg.onCooldown) return message.reply(`Come back after ${beg.time.minutes} minutes & ${beg.time.seconds} seconds.`);
-      return message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve *${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(amount3)*2}** Kazandın! \n Paranı **2'ye** katladın ve **${amount}**💸 Kazandın!. \n Şuanki Paran:**${beg.after}** 💸.\n kullanıcıdan alınan veri:**${amount3}** \n Şans: **${[Math.floor(amount2)]}** \n Kullanıcı ismi: **${message.author.tag}**`);
+      return message.channel.send(`**${message.author.tag} | ** **${amount3}**💶 oynadı ve **${yazitura}** seçti! \n Para döndürülüyor...🪙 ve **${(money)}**💶 Kazandın!`);
         }
     else return message.channel.send(`**${message.author.tag}** kaybettiniz :c`)
     }
