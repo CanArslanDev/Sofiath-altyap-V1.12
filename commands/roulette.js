@@ -48,36 +48,32 @@ exports.execute = async (client, message, args) => {
         return msg.edit(embed)
         }, 2000); 
        setTimeout(() => {
-        if(amount>=50)
+        if(amount>=85)
            {
-             if(amount==amount4)
+             if(amount4==amount)
                {
-                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri2));
-                 embed.setDescription(`**a**`)
+                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
               return msg.edit(embed)
                }
              else
                {
-                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri2));
-                 embed.setDescription(`**b**`)
+                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
            }
-         else
-           {
-             embed.setDescription(`**${amount},${amount4}**`)
-           }
-    /*     if(amount>=42 || amount<85)
+         if(amount>=42 || amount<85)
            {
                if(amount4==amount)
                {
-                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri2));
+                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
                  embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
              else
                {
-                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri2));
+                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
                  embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
               return msg.edit(embed)
                }
@@ -86,17 +82,17 @@ exports.execute = async (client, message, args) => {
            {
                  if(amount4==amount)
                {
-                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri2));
+                    let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
                  embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
              else
                {
-                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri2));
+                      let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
                  embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
-           } */
+           }
      //   embed.setDescription(`**${amount},${amount4}**`)
         return msg.edit(embed)
         }, 3000); 
