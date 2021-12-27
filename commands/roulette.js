@@ -15,14 +15,14 @@ exports.execute = async (client, message, args) => {
   else{
     if(kullaniciveri>authordata.amount || kullaniciveri<1) return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
     if(amount3!="green" && amount3!="red" && amount3!="blue") return message.channel.send(`** ⛔${message.author.tag} | **Kartları **yanlış** seçtiniz :c`);
-    if([Math.floor(amount3)]=="green") kullaniciveri2="🟩"
-    if([Math.floor(amount3)]=="red") kullaniciveri2="🟥"
-    if([Math.floor(amount3)]=="blue") kullaniciveri2="🟦"
+    if((amount3)=="green") kullaniciveri2="🟩"
+    if((amount3)=="red") kullaniciveri2="🟥"
+    if((amount3)=="blue") kullaniciveri2="🟦"
    const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${kullaniciveri} İle Rulet Oynadı! \n-------------------------------------**`)
   .setColor("GRAY")
   .setFooter(`Roulette`)
-  .setDescription(`**🟩Gelme Şansı 42,5 , Kazanç:2X\n🟥Gelme Şansı 42,5 , Kazanç:2X\n🔷Gelme Şansı 15 , Kazanç:2X \n Senin Oynadığın:${kullaniciveri2}**`)
+  .setDescription(`🟩Gelme Şansı 42,5 , Kazanç:2X\n🟥Gelme Şansı 42,5 , Kazanç:2X\n🔷Gelme Şansı 15,0 , Kazanç:2X \n Senin Oynadığın:${kullaniciveri2}`)
  // .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   
   return message.channel.send(embed).then(async msg => {
