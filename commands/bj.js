@@ -25,14 +25,14 @@ exports.execute = async (client, message, args) => {
     else
       {
       azcok="En Çok Atan"
-        amount
+        amount5="1"
       }
         const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
   .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
-  
+  if(amount5==0){
   return message.channel.send(embed).then(async msg => {
       setTimeout(() => {
          embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amount}💶 **`)
@@ -62,7 +62,38 @@ exports.execute = async (client, message, args) => {
         return msg.edit(embed)
         }, 2000);
           });
-
+  }
+  if(amount5==1){
+  return message.channel.send(embed).then(async msg => {
+      setTimeout(() => {
+         embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amount}💶 **`)
+        return msg.edit(embed)
+        }, 1000);
+    setTimeout(() => {
+      let amount4 = Math.floor(Math.random() * amount3);
+      let amountfinish= Math.floor(amount+amount4)
+         embed.setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= ${amountfinish}💶 **`)
+        if(amountfinish==amount3) {
+                  embed.setColor("YELLOW")
+            embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
+          }
+          else if(amountfinish>amount3)
+        {
+          embed.setColor("RED")
+          let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
+        }
+      else
+        {
+          embed.setColor("GREEN")
+          let data2= client.eco.addMoney(client.ecoAddUser, parseInt(amount3));
+          embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Tebrikler ,Kazandın!`)
+        }
+    
+        return msg.edit(embed)
+        }, 2000);
+          });
+  }
   }
 };
 
