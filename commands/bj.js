@@ -37,7 +37,7 @@ exports.execute = async (client, message, args) => {
                   embed.setColor("YELLOW")
             embed.setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧, Rakip Kazandı :(`)
           }
-          else if(amountfinish>amount3)
+          else if(amountfinish<amount3)
         {
           embed.setColor("RED")
           let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(amount3));
