@@ -50,46 +50,46 @@ exports.execute = async (client, message, args) => {
        setTimeout(() => {
         if(amount>=85)
            {
-             if(amount4==amount)
+             if(amount4=="0")
                {
                     let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
               return msg.edit(embed)
                }
              else
                {
                       let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Maalesef Kaybettin :x!\n Rulet:🟢\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
            }
-         if(amount>=42 || amount<85)
+         else if(amount>=42)
            {
-               if(amount4==amount)
+               if(amount4=="1")
                {
                     let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**${amount4}🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
              else
                {
                       let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**${amount4}🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Maalesef Kaybettin :x!\n Rulet:🔴\n Senin Oynadığın:${kullaniciveri2}**`)
               return msg.edit(embed)
                }
            }
-         if(amount>=0|| amount<42)
+         else
            {
-                 if(amount4==amount)
+                 if(amount4=="2")
                {
                     let data2= client.eco.addMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Tebrikler, Kazandın!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
              else
                {
                       let data2= client.eco.removeMoney(client.ecoAddUser, parseInt(kullaniciveri));
-                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Tebrikler, Kazandın!\n Maalesef Kaybettin :x!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
+                 embed.setDescription(`**🟢 |Gelme Şansı 42,5 , Kazanç:2X\n🔴 |Gelme Şansı 42,5 , Kazanç:2X\n🔷 |Gelme Şansı 15,0 , Kazanç:2X \n------------------------------------------\n Çark Döndürülüyor...\n Maalesef Kaybettin :x!\n Rulet:🔷\n Senin Oynadığın:${kullaniciveri2}**`)
                return msg.edit(embed)
                }
            }
