@@ -22,8 +22,8 @@ exports.execute = async (client, message, args) => {
   .setTitle(`**${message.author.tag} | ${amount3} İle Rulet Oynadı! \n🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
-  .setDescription(`**🟩Gelme Şansı 42,5 \n**`)
-  .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
+  .setDescription(`**🟩Gelme Şansı 42,5 , Kazanç:2X\n🟥Gelme Şansı 42,5 , Kazanç:2X\n\n🟦Gelme Şansı 15 , Kazanç:2X**`)
+ // .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   
   return message.channel.send(embed).then(async msg => {
       setTimeout(() => {
