@@ -9,20 +9,20 @@ exports.execute = async (client, message, args) => {
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
     let amount = Math.floor(Math.random() * amount3);
-    let azcok=""
+    let kullaniciveri=args[1]
     let amountfinish= 0
     let authordata = client.eco.fetchMoney(message.author.id) 
-     if (!amount3 || isNaN(amount3)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
+     if (!kullaniciveri || isNaN(kullaniciveri)) return message.channel.send(`** ⛔${message.author.tag} | ** Lütfen Sayı Giriniz.`);
   else{
-    if(amount3>authordata.amount || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
-    
-    if([Math.floor(amount2)]==0) azcok="En Az Atan"
+    if(kullaniciveri>authordata.amount || kullaniciveri<1) return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
+    if(amount3!="green" || amount3!="red" || amount3!="blue") return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
+    if([Math.floor(amoun3)]=="green") azcok="🟥"
     else azcok="En Çok Atan"
    const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Rulet Oynadı! \n🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
-  .setDescription(`**🟩Gelme Şansı 42,5 , Kazanç:2X\n🟥Gelme Şansı 42,5 , Kazanç:2X\n\n🟦Gelme Şansı 15 , Kazanç:2X**`)
+  .setDescription(`**🟩Gelme Şansı 42,5 , Kazanç:2X\n🟥Gelme Şansı 42,5 , Kazanç:2X\n\n🟦Gelme Şansı 15 , Kazanç:2X \n Senin Oynadığın:**`)
  // .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   
   return message.channel.send(embed).then(async msg => {
@@ -61,5 +61,5 @@ exports.execute = async (client, message, args) => {
 exports.help = {
     name: "roulette",
     aliases: ["spin"],
-    usage: "roulette <amount>"
+    usage: "roulette <green,red,yellow> <amount>"
 }
