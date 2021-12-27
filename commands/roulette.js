@@ -19,9 +19,10 @@ exports.execute = async (client, message, args) => {
     if([Math.floor(amount2)]==0) azcok="En Az Atan"
     else azcok="En Çok Atan"
    const embed = new MessageEmbed()
-  .setTitle(`**${message.author.tag} | ${amount3} İle Spin Oynadı🟩🟥🟦!**`)
+  .setTitle(`**${message.author.tag} | ${amount3} İle Rulet Oynadı! \n🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦🟩🟥🟦**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
+  .setDescription(`**🟩Gelme Şansı 42,5 \n**`)
   .setDescription(`**🃏${message.author.tag}= *${amount3}*💶  \n 🃏Rakip= *Bekleniyor*💶 **`)
   
   return message.channel.send(embed).then(async msg => {
@@ -58,7 +59,7 @@ exports.execute = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "spin",
-    aliases: [],
-    usage: "spin <amount>"
+    name: "roulette",
+    aliases: ["spin"],
+    usage: "roulette <amount>"
 }
