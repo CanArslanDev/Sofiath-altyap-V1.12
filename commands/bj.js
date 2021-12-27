@@ -8,6 +8,7 @@ exports.execute = async (client, message, args) => {
     ];
     let amount2 = Math.floor(Math.random() * 200)/100;
     let amount3 = args[0]
+    let amount5="0"
     let amount = Math.floor(Math.random() * amount3);
     let azcok=""
     let amountfinish= 0
@@ -16,9 +17,17 @@ exports.execute = async (client, message, args) => {
   else{
     if(amount3>authordata.amount || amount3<1) return message.channel.send(`** ⛔${message.author.tag} | ** Kendi bakiyenizden büyük ve 1'den küçük sayı giremessiniz.`);
     
-    if([Math.floor(amount2)]==0) azcok="En Az Atan"
-    else azcok="En Çok Atan"
-   const embed = new MessageEmbed()
+    if([Math.floor(amount2)]==0) 
+    {
+      azcok="En Az Atan"
+      amount5="0"
+    }
+    else
+      {
+      azcok="En Çok Atan"
+        amount
+      }
+        const embed = new MessageEmbed()
   .setTitle(`**${message.author.tag} | ${amount3} İle Blackjack Oynadı!**`)
   .setColor("GRAY")
   .setFooter(`${azcok} 𝙆𝙖𝙯𝙖𝙣ı𝙧`)
