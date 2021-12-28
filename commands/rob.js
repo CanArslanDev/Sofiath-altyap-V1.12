@@ -1,10 +1,11 @@
 exports.execute = async (client, message, args) => {
   let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) 
+  let authordata = client.eco.fetchMoney(message.author.id) 
   if(!target) return message.reply("Who are you trying to rob?")
   let messages = [
-    `Yaşlı teyze polisi aradı ${target} yakalandın dostum!`,
-    `Dızlamaya çalışırken komşulara yakalandın ${target} welcome to silivri!`,
-    `Başarısız oldun ${target} düşdün mapus damlarına.`
+    `Yaşlı teyze polisi aradı ${target} yok oldu!`,
+    `Başaramadık abi ${target} elden gitti!`,
+    `Düşdün mapus damlarına ${target} topukladı.`
   ]
    let amount = Math.floor(Math.random() * 50) + 10;
     let rob = client.eco.beg(client.ecoAddUser, amount, { canLose: true });
